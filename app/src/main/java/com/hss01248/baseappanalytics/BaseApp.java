@@ -11,7 +11,8 @@ public class BaseApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        XReporter.init(this,"b3c263eaa5",true);
-        UmengUtil.init(this,"6134886e695f794bbd9fb14e","bugly",1,"", BuildConfig.DEBUG);
+        XReporter.init(this,"7ac352d904",true);
+        //4f7a08bf-1fa1-453f-870d-da59f0131c02
+        UmengUtil.init(this,"6163f5bbac9567566e91bb94","bugly",1,"", BuildConfig.DEBUG);
     }
 }
