@@ -1,0 +1,69 @@
+
+
+rootProject.buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://dl.bintray.com/magnusja/maven' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+    }
+    dependencies {
+        classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'
+        classpath "com.umeng.umsdk:apm-plugin:0.0.1"
+    }
+}
+
+def isLocal(){
+
+    for(Project p : subprojects){
+        if( p.getName().contains("flipper")){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+def bugly
+def umeng
+if(isLocal()){
+    umeng = project(':bugly')
+    bugly = project(':analytics-umeng')
+
+}else {
+    bugly = 'com.github.hss01248.BaseAppAnalytics:bugly:1.0.0'
+    umeng = 'com.github.hss01248.BaseAppAnalytics:analytics-umeng:1.0.0'
+}
+
+
+gradle.addProjectEvaluationListener(new ProjectEvaluationListener() {
+    @Override
+    void beforeEvaluate(Project project) {
+    }
+
+    @Override
+    void afterEvaluate(Project project, ProjectState projectState) {
+        println("---->afterEvaluate2:"+project)
+        if(project.plugins.findPlugin("com.android.application") != null){
+            implementation bugly
+            implementation umeng
+            println("---->isLocal2():"+isLocal())
+        }
+
+    }
+})
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://dl.bintray.com/magnusja/maven' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+    }
+}
+
+

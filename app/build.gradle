@@ -63,5 +63,4 @@ efs {
     //您自定义Application的类名称，必填项，如没有自定义则填写系统Application
     applicationName = "com.hss01248.baseappanalytics.BaseApp"
     //您自定义Activity的类名称，必填项，将您所有用于页面展示的Activity的类名按如下格式填写，否则会丢失热启动
-
 }
