@@ -1,0 +1,4 @@
+include ':bugly'
+include ':analytics-umeng'
+include ':app'
+rootProject.name = "BaseAppAnalytics"
