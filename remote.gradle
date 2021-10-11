@@ -18,7 +18,7 @@ rootProject.buildscript {
 def isLocal(){
 
     for(Project p : subprojects){
-        if( p.getName().contains("flipper")){
+        if( p.getName().contains("bugly")){
             return true;
         }
     }
@@ -37,24 +37,6 @@ if(isLocal()){
     umeng = 'com.github.hss01248.BaseAppAnalytics:analytics-umeng:1.0.0'
 }
 
-
-gradle.addProjectEvaluationListener(new ProjectEvaluationListener() {
-    @Override
-    void beforeEvaluate(Project project) {
-    }
-
-    @Override
-    void afterEvaluate(Project project, ProjectState projectState) {
-        println("---->afterEvaluate2:"+project)
-        if(project.plugins.findPlugin("com.android.application") != null){
-            implementation bugly
-            implementation umeng
-            println("---->isLocal2():"+isLocal())
-        }
-
-    }
-})
-
 allprojects {
     repositories {
         google()
@@ -65,5 +47,27 @@ allprojects {
         maven { url 'https://repo1.maven.org/maven2/' }
     }
 }
+
+gradle.addProjectEvaluationListener(new ProjectEvaluationListener() {
+    @Override
+    void beforeEvaluate(Project project) {
+    }
+
+    @Override
+    void afterEvaluate(Project project, ProjectState projectState) {
+        println("---->afterEvaluate2:"+project)
+        if(project.plugins.findPlugin("com.android.application") != null){
+            project.dependencies {
+                implementation bugly
+                implementation umeng
+            }
+
+            println("---->isLocal2():"+isLocal())
+        }
+
+    }
+})
+
+
 
 

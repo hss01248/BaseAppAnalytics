@@ -1,24 +1,24 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    //apply from:'remote.gradle'
-    repositories {
+    apply from:'remote.gradle'
+    /*repositories {
         google()
         jcenter()
         mavenCentral()
         maven { url 'https://dl.bintray.com/magnusja/maven' }
         maven { url "https://jitpack.io" }
         maven { url 'https://repo1.maven.org/maven2/' }
-    }
+    }*/
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.0"
-        classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'
-        classpath "com.umeng.umsdk:apm-plugin:0.0.1"
+        //classpath 'com.tencent.bugly:symtabfileuploader:2.2.1'
+        //classpath "com.umeng.umsdk:apm-plugin:0.0.1"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
-allprojects {
+/*allprojects {
     repositories {
         google()
         jcenter()
@@ -27,7 +27,7 @@ allprojects {
         maven { url "https://jitpack.io" }
         maven { url 'https://repo1.maven.org/maven2/' }
     }
-}
+}*/
 
 task clean(type: Delete) {
     delete rootProject.buildDir
