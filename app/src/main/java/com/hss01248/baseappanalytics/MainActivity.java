@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.hss01248.app.update.PgyerAppUpdater;
 import com.hss01248.bugly.XReporter;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,5 +28,9 @@ public class MainActivity extends AppCompatActivity {
             XReporter.reportException(throwable);
         }
 
+    }
+
+    public void checkUpdate(View view) {
+        PgyerAppUpdater.checkUpdate(this,"38d98d28e5f7dc90d1cb0401d207b86b","fc73bc9c4739a97afab38e0ba2667184");
     }
 }

@@ -1,3 +1,4 @@
+include ':update'
 include ':bugly'
 include ':analytics-umeng'
 include ':app'
