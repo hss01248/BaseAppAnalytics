@@ -6,7 +6,6 @@ rootProject.buildscript {
         jcenter()
         mavenCentral()
         maven { url "https://jitpack.io" }
-        maven { url 'https://dl.bintray.com/magnusja/maven' }
         maven { url 'https://repo1.maven.org/maven2/' }
     }
     dependencies {
@@ -43,7 +42,6 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url "https://jitpack.io" }
-        maven { url 'https://dl.bintray.com/magnusja/maven' }
         maven { url 'https://repo1.maven.org/maven2/' }
         maven { url "https://frontjs-static.pgyer.com/dist/sdk/pgyersdk" }  //蒲公英主力仓库
         maven { url "https://raw.githubusercontent.com/Pgyer/analytics/master" }  //备用仓库（主力仓库下载不下来使用）
